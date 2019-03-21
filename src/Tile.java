@@ -14,12 +14,8 @@ public class Tile {
 	}
 	public boolean AcceptOrangutan(Orangutan o) {
 		if (animal!=null){
-			if (animal.CollideWithOrangutan(o)==true) {
-				return true;
-			}
-			else {
-				return false;
-			}
+			animal.CollideWithOrangutan(o);
+			return false;
 		}
 		return true;
 	}
