@@ -16,7 +16,16 @@ public class Panda extends Animal implements Observer, Steppable {
 		return false;
 		}
 	public  void CaughtbyOrangutan(Orangutan o){	//nincs kész
-
+		Tile oran_tile = o.GetTile();
+                Panda lead_panda = o.GetPulled();
+                o.SetPulled(this);
+                if (lead_panda != null)
+                        lead_panda.SetPuller(this);
+                o.SetTile(tile);
+                super.SetTile(oran_tile);
+                tile.setAnimal(o);
+                oran_tile.setAnimal(this);
+                return false;
 	}
 	public Animal GetPuller(){
 		return puller;
