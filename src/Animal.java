@@ -6,7 +6,7 @@ public abstract class Animal {
 		Destroy();
 	}
 	public void Destroy(){
-		tile.RemoveAnimal(this);
+		tile.RemoveAnimal();
 		Game.getInstance().DeleteAnimal(this);
 		if (pulled!=null) {
 			Disband();
@@ -15,8 +15,12 @@ public abstract class Animal {
 	public void Move(int side){
 		
 	}
-	public boolean CollideWithPanda(Panda p){return false;}
-	public boolean CollideWithOrangutan(Orangutan o){return false;}
+	public boolean CollideWithPanda(Panda p){
+		return false;
+		}
+	public boolean CollideWithOrangutan(Orangutan o){
+		return false;
+		}
 	public void Disband(){
 		pulled.Disband();
 	}
