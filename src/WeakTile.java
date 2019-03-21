@@ -23,11 +23,8 @@ public class WeakTile extends Tile {
 		if (animal!=null){
 			if (animal.CollideWithOrangutan(o)==true) {
 				Damage(1);
-				return true;
 			}
-			else{
-				return false;
-			}
+		return false;	
 		}
 		return true;
 	}
