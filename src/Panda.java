@@ -1,22 +1,22 @@
 import java.util.ArrayList;
+import java.util.Random;
 public class Panda extends Animal implements Observer, Steppable {
-	private Animal puller;
+	protected Animal puller;
 	private ArrayList<Observable> observables;
 	public void Move(int side) {}
-	public void Step() {
-		
-	}
+	
 	public boolean CollideWithPanda(Panda p){		
 		return false;
 	}
 	public boolean CollideWithOrangutan(Orangutan o){
 		if (puller==null){
 			CaughtbyOrangutan(o);
+			return true;
+			}
+		return false;
 		}
-		return false;
-	}
-	public boolean CaughtbyOrangutan(Orangutan o){	//nincs kész
-		return false;
+	public  void CaughtbyOrangutan(Orangutan o){	//nincs kész
+
 	}
 	public Animal GetPuller(){
 		return puller;
@@ -29,6 +29,13 @@ public class Panda extends Animal implements Observer, Steppable {
 			o.Detach(this);
 			Game.getInstance().GetTimer().RemoveSteppable(this);
 			Game.getInstance().DeleteAnimal(this);
+		}
+	}
+	public void Step() {
+		Random rand=new Random();
+		if (puller==null) {
+			int sides=tile.GetSides();
+			Move(rand.nextInt(sides));
 		}
 	}
 	public void GetScared(){}
