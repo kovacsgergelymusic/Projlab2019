@@ -12,20 +12,21 @@ public abstract class Animal {
 			Disband();
 		}
 	}
-	public void Move(int side){}
-	public boolean CollideWithPanda(Panda p){return true;}
-	public boolean CollideWithOrangutan(Orangutan o){return true;}
+	public void Move(int side){
+		
+	}
+	public boolean CollideWithPanda(Panda p){return false;}
+	public boolean CollideWithOrangutan(Orangutan o){return false;}
 	public void Disband(){
 		pulled.Disband();
 	}
 	public Tile GetTile(){
 		return tile;
 		}
-	public Animal GetPulled(){
+	public Panda GetPulled(){
 		return pulled;
 		}
 	public void SetPulled(Panda p){
 		pulled=p;
 		}
-	
 }
