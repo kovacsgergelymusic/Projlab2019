@@ -1,31 +1,45 @@
-public abstract class Animal {
-	protected Panda pulled;
-	protected Tile tile;
-	
-	public void Fall() {
-		Destroy();
+import java.util.ArrayList;
+public class Panda extends Animal implements Observer, Steppable {
+	private Animal puller;
+	private ArrayList<Observable> observables;
+	public void Move(int side) {}
+	public void Step() {
+		
+	}
+	public boolean CollideWithPanda(Panda p){		
+		return false;
+	}
+	public boolean CollideWithOrangutan(Orangutan o){
+		if (puller==null){
+			CaughtbyOrangutan(o);
+		}
+		return false;
+	}
+	public boolean CaughtbyOrangutan(Orangutan o){	//nincs kész
+		return false;
+	}
+	public Animal GetPuller(){
+		return puller;
+	}
+	public void SetPuller(Animal a){
+		puller=a;
 	}
 	public void Destroy(){
-		tile.RemoveAnimal(this);
-		Game.getInstance().DeleteAnimal(this);
-		if (pulled!=null) {
-			Disband();
+		for (Observable o:observables){
+			o.Detach(this);
+			Game.getInstance().GetTimer().RemoveSteppable(this);
+			Game.getInstance().DeleteAnimal(this);
 		}
 	}
-	public void Move(int side){}
-	public boolean CollideWithPanda(Panda p){return true;}
-	public boolean CollideWithOrangutan(Orangutan o){return true;}
+	public void GetScared(){}
+	public void Jump(){}
+	public void Sit(){}
+	public void Update(Observable ob) {}
 	public void Disband(){
-		pulled.Disband();
+		puller.SetPulled(null);
+		puller=null;
+		if (pulled!=null) {
+			pulled.Disband();
+		}
 	}
-	public Tile GetTile(){
-		return tile;
-		}
-	public Animal GetPulled(){
-		return pulled;
-		}
-	public void SetPulled(Panda p){
-		pulled=p;
-		}
-	
 }
