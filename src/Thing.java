@@ -1,5 +1,9 @@
+import java.util.ArrayList;
 public abstract class Thing implements Steppable, Observable{
 	private Tile tile;
-	private ArrayList<Observer> observers;
+	protected ArrayList<Observer> observers;
+	public Tile GetTile() {
+		return tile;
+	}
 }
 
