@@ -1,5 +1,4 @@
-public class Chair extends Thing {
-	
+public class Chair extends Thing { //Notify es Detach mehetne a Thing-be	
 	public void Step(boolean occupied) {
 		System.out.println("Step()");
 		if (!occupied) {
