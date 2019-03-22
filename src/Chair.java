@@ -1,5 +1,5 @@
 public class Chair extends Thing {
-	private boolean occupied;
+	
 	public void Step(boolean occupied) {
 		System.out.println("Step()");
 		if (!occupied) {
