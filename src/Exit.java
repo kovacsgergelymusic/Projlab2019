@@ -1,6 +1,10 @@
 
 public class Exit extends Tile{
-	private Tile entrance;
-	public boolean AcceptPanda(Panda p) {return true;}
-	public boolean AcceptOrangutan(Orangutan o) {return true;}
+	
+	public boolean AcceptPanda(Panda p) {
+		System.out.println("AcceptPanda(p)");
+		return true;}
+	public boolean AcceptOrangutan(Orangutan o) {
+		System.out.println("AcceptOrangutan o)");
+		return true;}
 }
