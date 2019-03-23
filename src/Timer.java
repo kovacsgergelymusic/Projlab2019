@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 public class Timer {
-	private ArrayList<Steppable> steppables;
-	public void Tick() {
+	
+	public void Tick(ArrayList<Steppable> steppables) {
+		System.out.println("Tick()");
 		for (Steppable s:steppables){
 			s.Step();
 		}
 	}
-	public void RemoveSteppable(Steppable s) {
+	public void RemoveSteppable(Steppable s, ArrayList<Steppable> steppables) {
+		System.out.println("RemoveSteppable(Steppable s)");
 		steppables.remove(s);
 	}
 }
