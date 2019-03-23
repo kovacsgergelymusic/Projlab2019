@@ -1,18 +1,17 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
 public class Tile {
-	private int sides;
-	private Hashtable<Integer,Tile> neighbors;
-	protected Animal animal;
-	private Thing thing;
-	public boolean AcceptPanda(Panda p) {
+	
+	public boolean AcceptPanda(Panda p,Animal animal) {
+		System.out.println("AcceptPanda(Panda p)");
 		if (animal!=null) {
 			animal.CollideWithPanda(p);
 			return false;
 		}
 		return true;
 	}
-	public boolean AcceptOrangutan(Orangutan o) {
+	public boolean AcceptOrangutan(Orangutan o, Animal animal) {
+		System.out.println("AcceptOrangutan(Orangutan o)");
 		if (animal!=null){
 			animal.CollideWithOrangutan(o);
 			return false;
@@ -20,17 +19,24 @@ public class Tile {
 		return true;
 	}
 	public void RemoveAnimal() {
-		this.animal=null;
+		System.out.println("RemoveAnimal()");
+		
 	}
-	public void JumpedOn() {}
-	public Tile GetNeighbor(int side) {
+	public void JumpedOn() {
+		System.out.println("JumpedOn()");
+	}
+	public Tile GetNeighbor(int side, Hashtable<Integer,Tile> neighbors) {
+		System.out.println("GetNeighbor(int side)");
 		return neighbors.get(side);
 	}
-	public int GetSides() {
+	public int GetSides(int sides) {
+		System.out.println("GetSides()");
 		return sides;
 	}
-	public int CompareTile(Tile t) {return 0;}  //nincs kész
+	public int CompareTile(Tile t) {
+		System.out.println("CompareTile(Tile t)");
+		return 0;}  //nincs kész
 	public void SetAnimal (Animal a) {
-		animal=a;
+		System.out.println("SetAnimal(Animal a)");
 	}
 }
