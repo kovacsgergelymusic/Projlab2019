@@ -1,17 +1,18 @@
 
 public class WeakTile extends Tile {
-	private int steps;
-	private boolean broken;
-	public void Damage (int n) {
+
+	public void Damage (int n, int steps) {
+		System.out.println("Damage(int n)");
 		steps+=n;
 		if (steps>=20) {
 			Break();
 		}
 	}
 	public void Break() {
-		broken=true;
+		System.out.println("Break()");
 	}
-	public boolean AcceptPanda(Panda p) {
+	public boolean AcceptPanda(Panda p, Animal animal, int steps) {
+		System.out.println("AcceptPanda(Panda p)");
 		if (animal!=null) {
 			animal.CollideWithPanda(p);
 			return false;
@@ -19,7 +20,8 @@ public class WeakTile extends Tile {
 		Damage(1);
 		return true;
 	}
-	public boolean AcceptOrangutan(Orangutan o) {
+	public boolean AcceptOrangutan(Orangutan o, Animal animal, int steps) {
+		System.out.println("AcceptOrangutan(Orangutan o)");
 		if (animal!=null){
 			if (animal.CollideWithOrangutan(o)==true) {
 				Damage(1);
@@ -28,7 +30,8 @@ public class WeakTile extends Tile {
 		}
 		return true;
 	}
-	public void JumpedOn() {
+	public void JumpedOn(int steps) {
+		System.out.println("JumpedOn()");
 		Damage(5);
 	}
 }
