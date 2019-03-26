@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+//Timer osztály
 public class Timer {
-	private ArrayList<Steppable> steppables;
-	public void Tick() {
+	//Feliratkozottak léptetése
+	public void Tick(ArrayList<Steppable> steppables, int random, ArrayList<Observer> observers) {
+		System.out.println("Tick()");
 		for (Steppable s:steppables){
-			s.Step();
+			//s.Step(random, observers);
 		}
 	}
+	//Leiratkozás
 	public void RemoveSteppable(Steppable s) {
-		steppables.remove(s);
+		System.out.println("RemoveSteppable(Steppable s)");
+
 	}
 }
