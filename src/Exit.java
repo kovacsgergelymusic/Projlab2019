@@ -1,17 +1,10 @@
-import java.util.ArrayList;
-//Kijárat osztály, a Tile leszármazottja
+
 public class Exit extends Tile{
-	//Kezeli, ha egy panda próbál a kijáratra lépni
-	public boolean AcceptPanda(Panda p, Tile tile, Game game, Animal puller, Panda pulled, ArrayList<Orangutan> orangutans, ArrayList<Panda> pandas, ArrayList<Observable> observables, Timer timer) {
-		System.out.println("AcceptPanda(p)");
-		tile.RemoveAnimal();
-		p.Destroy(tile,game,puller,pulled,orangutans,pandas,observables,timer);
-		return false;
-	}
-	//Kezeli, ha egy orángután próbál a kijáratra lépni
-	public boolean AcceptOrangutan(Orangutan o, Tile entrance, Tile tile, Panda p1, Panda p2,Animal entranceAnimal, Tile panda1Tile, Tile panda2Tile, Game game,ArrayList<Orangutan> orangutans, ArrayList<Panda> pandas,ArrayList<Observable> observables, Timer timer) {
-		System.out.println("AcceptOrangutan o)");
-		if(entrance.GetAnimal(entranceAnimal)!=null)return false;
+	private Tile entrance;
+	public boolean AcceptPanda(Panda p) {	//meg kell írni, (ha panda egyedül lép ide, nem történik semmi)
+		return true;}
+	public boolean AcceptOrangutan(Orangutan o) {	//szkeleton kódból át kell írni
+		/*if(entrance.GetAnimal(entranceAnimal)!=null)return false;
 		tile.RemoveAnimal();
 		entrance.SetAnimal(o);
 		o.SetTile(entrance);
@@ -26,7 +19,7 @@ public class Exit extends Tile{
 			}
 			temp1.Destroy(panda1Tile,game,o,temp2,orangutans,pandas,observables,timer);
 			if (temp2!=null)temp2.Destroy(panda2Tile,game,null,null,orangutans,pandas,observables,timer);
-		}
+		}*/
 		return false;
-	}
+}
 }
